@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    UserService userService;
+    private UserService userService;
 
     @Autowired
     protected UserController(UserService userService) {
@@ -49,7 +49,6 @@ public class UserController {
 
     @PatchMapping("/edit")
     public String updateUserInfo(@ModelAttribute("user") User user) {
-        System.out.println(user);
         userService.updateUser(user);
         return "redirect:/users";
     }
